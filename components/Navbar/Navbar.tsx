@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { NavLinks } from '../../constants';
 import AuthProviders from '../AuthProviders/AuthProviders';
 import { getCurrentUser } from '../../lib/session';
+import ProfileMenu from '../ProfileMenu/ProfileMenu';
 
 const Navbar = async () => {
 	const session = await getCurrentUser();
@@ -13,7 +14,7 @@ const Navbar = async () => {
 				<Link href='/'>
 					<Image
 						src='/logo.svg'
-						alt='flexibble-logo'
+						alt='flexible-logo'
 						width={115}
 						height={43}
 						priority
@@ -31,13 +32,7 @@ const Navbar = async () => {
 			<div className='flexCenter gap-4'>
 				{session?.user ? (
 					<>
-						<Image
-							src={`${session?.user?.image}`}
-							alt='profile-photo'
-							width={40}
-							height={40}
-							className='rounded-full'
-						/>
+						<ProfileMenu session={session} />
 						<Link href={'/create-project'}>Share your work</Link>
 					</>
 				) : (
