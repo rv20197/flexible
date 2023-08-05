@@ -4,7 +4,7 @@ import { ProjectInterface, SessionInterface } from '../../common.types';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import FormField from '../FormField/FormField';
-import { categoryFilters, formFields, projectForm } from '../../constants';
+import { categoryFilters, formFields } from '../../constants';
 import CustomMenu from '../CustomMenu/CustomMenu';
 import Button from '../Button/Button';
 import { createNewProject, fetchToken, updateProject } from '../../lib/actions';
