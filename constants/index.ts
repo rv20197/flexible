@@ -98,34 +98,31 @@ export const projectForm = {
 	title: '',
 	description: '',
 	liveSiteUrl: '',
-	gitHubUrl: ''
+	gitHubUrl: '',
+	category: ''
 };
 
 export const formFields = [
 	{
 		title: 'Title',
-		state: projectForm.title,
 		placeholder: 'Flexible',
-		type: null,
+		type: undefined,
 		name: 'title'
 	},
 	{
 		title: 'Description',
-		state: projectForm.description,
 		placeholder: 'Showcase and discover remarkable developer projects.',
-		type: null,
+		type: undefined,
 		name: 'description'
 	},
 	{
 		title: 'Live Site Url',
-		state: projectForm.liveSiteUrl,
 		placeholder: 'https://www.vatsalrajgor.com',
 		type: 'url',
 		name: 'liveSiteUrl'
 	},
 	{
 		title: 'Github Url',
-		state: projectForm.gitHubUrl,
 		placeholder: 'https://github.com/rv20197',
 		type: 'url',
 		name: 'gitHubUrl'

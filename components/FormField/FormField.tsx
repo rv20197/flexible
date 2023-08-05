@@ -1,7 +1,7 @@
 import React from 'react';
 
 type Props = {
-	type?: string;
+	type?: string | undefined;
 	title: string;
 	state: string;
 	placeholder: string;
@@ -15,7 +15,7 @@ const FormField = ({
 	state,
 	placeholder,
 	isTextArea,
-	setState
+	setState,
 }: Props) => {
 	return (
 		<div className='flexStart flex-col w-full gap-4'>
