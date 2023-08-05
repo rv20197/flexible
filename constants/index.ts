@@ -95,15 +95,6 @@ export const footerLinks = [
 	}
 ];
 
-export const projectForm: ProjectForm = {
-	image: '',
-	title: '',
-	description: '',
-	liveSiteUrl: '',
-	githubUrl: '',
-	category: ''
-};
-
 export const formFields = [
 	{
 		title: 'Title',
