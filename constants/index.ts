@@ -1,3 +1,5 @@
+import { ProjectForm } from '../common.types';
+
 export const NavLinks = [
 	{ href: '/', key: 'Inspiration', text: 'Inspiration' },
 	{ href: '/', key: 'Find Projects', text: 'Find Projects' },
@@ -93,12 +95,12 @@ export const footerLinks = [
 	}
 ];
 
-export const projectForm = {
+export const projectForm: ProjectForm = {
 	image: '',
 	title: '',
 	description: '',
 	liveSiteUrl: '',
-	gitHubUrl: '',
+	githubUrl: '',
 	category: ''
 };
 
@@ -125,6 +127,6 @@ export const formFields = [
 		title: 'Github Url',
 		placeholder: 'https://github.com/rv20197',
 		type: 'url',
-		name: 'gitHubUrl'
+		name: 'githubUrl'
 	}
 ];

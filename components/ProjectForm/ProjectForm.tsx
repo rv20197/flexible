@@ -2,10 +2,12 @@
 import React, { ChangeEvent, useState } from 'react';
 import { SessionInterface } from '../../common.types';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import FormField from '../FormField/FormField';
 import { categoryFilters, formFields, projectForm } from '../../constants';
 import CustomMenu from '../CustomMenu/CustomMenu';
 import Button from '../Button/Button';
+import { createNewProject, fetchToken } from '../../lib/actions';
 
 type Props = {
 	type: string;
@@ -15,8 +17,24 @@ type Props = {
 const ProjectForm = ({ type, session }: Props) => {
 	const [form, setForm] = useState(projectForm);
 	const [isSubmitting, setIsSubmitting] = useState(false);
+	const router = useRouter();
 
-	const handleFormSubmit = (e: React.FormEvent) => {};
+	const handleFormSubmit = async (e: React.FormEvent) => {
+		e.preventDefault();
+		setIsSubmitting(true);
+		const { token } = await fetchToken();
+		try {
+			if (type === 'create') {
+				// create project
+				await createNewProject(form, session?.user?.id, token);
+				router.push('/');
+			}
+		} catch (error) {
+			console.log(`Error creating ${type}:`, error);
+		} finally {
+			setIsSubmitting(false);
+		}
+	};
 
 	const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
