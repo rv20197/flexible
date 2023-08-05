@@ -7,7 +7,7 @@ type Props = {
 	leftIcon?: string | undefined;
 	rightIcon?: string | null;
 	handleClick?: MouseEventHandler;
-	isSubmitting: boolean;
+	isSubmitting?: boolean;
 	bgColor?: string;
 	textColor?: string;
 };
