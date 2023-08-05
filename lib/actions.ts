@@ -2,7 +2,8 @@ import { GraphQLClient } from 'graphql-request';
 import {
 	createProjectMutation,
 	createUserMutation,
-	getUserQuery
+	getUserQuery,
+	projectsQuery
 } from '../graphqlQueries';
 import { ProjectForm } from '../common.types';
 
@@ -32,7 +33,6 @@ const makeGraphQLRequest = async (query: string, variables = {}) => {
 
 export const getUser = (email: string) => {
 	client.setHeader('x-api-key', apiKey);
-	client.setHeader('Authorization', `Bearer ${apiKey}`);
 	return makeGraphQLRequest(getUserQuery, { email });
 };
 
@@ -41,7 +41,6 @@ export const createUser = (name: string, email: string, avatarUrl: string) => {
 		input: { name, email, avatarUrl }
 	};
 	client.setHeader('x-api-key', apiKey);
-	client.setHeader('Authorization', `Bearer ${apiKey}`);
 	return makeGraphQLRequest(createUserMutation, queryVariables);
 };
 
@@ -88,4 +87,12 @@ export const createNewProject = async (
 
 		return makeGraphQLRequest(createProjectMutation, queryVariables);
 	}
+};
+
+export const fetchAllProjects = async (
+	category?: string,
+	endcursor?: string
+) => {
+	client.setHeader('x-api-key', apiKey);
+	return makeGraphQLRequest(projectsQuery, { category, endcursor });
 };
