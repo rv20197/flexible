@@ -20,8 +20,8 @@ export const authOptions: NextAuthOptions = {
 			const encodedToken = jsonwebtoken.sign(
 				{
 					...token,
-					issuer: 'grafbase',
-					expiresIn: 900000
+					iss: process.env.ISSUER_URL,
+					exp: Math.floor(Date.now() / 1000) + 60 * 60
 				},
 				secret
 			);

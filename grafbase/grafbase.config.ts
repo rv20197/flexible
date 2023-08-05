@@ -32,7 +32,7 @@ const Project = g
 	});
 
 const jwt = auth.JWT({
-	issuer: 'grafbase',
+	issuer: g.env('ISSUER_URL'),
 	secret: g.env('NEXTAUTH_SECRET')
 });
 
