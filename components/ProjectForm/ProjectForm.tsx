@@ -5,6 +5,7 @@ import Image from 'next/image';
 import FormField from '../FormField/FormField';
 import { categoryFilters, formFields, projectForm } from '../../constants';
 import CustomMenu from '../CustomMenu/CustomMenu';
+import Button from '../Button/Button';
 
 type Props = {
 	type: string;
@@ -91,7 +92,16 @@ const ProjectForm = ({ type, session }: Props) => {
 			/>
 
 			<div className='flexStart w-full'>
-				<button>Create</button>
+				<Button
+					title={
+						isSubmitting
+							? `${type === 'create' ? 'Creating' : 'Editing'}`
+							: `${type === 'create' ? 'Create' : 'Edit'}`
+					}
+					type='submit'
+					leftIcon={isSubmitting ? '' : '/plus.svg'}
+					isSubmitting={isSubmitting}
+				/>
 			</div>
 		</form>
 	);
