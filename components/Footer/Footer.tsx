@@ -7,21 +7,6 @@ type ColumnProps = {
 	links: Array<string>;
 };
 
-const FooterColumn = ({ title, links }: ColumnProps) => {
-	return (
-		<div className='footer_column'>
-			<h4 className='font-semibold'>{title}</h4>
-			<ul className='flex flex-col gap-2 font-normal'>
-				{links.map((link, index) => (
-					<Link href='/' key={index}>
-						{link}
-					</Link>
-				))}
-			</ul>
-		</div>
-	);
-};
-
 const Footer = () => {
 	return (
 		<footer className='flexStart footer'>
