@@ -25,7 +25,7 @@ type Props = {
 	searchParams: searchParams;
 };
 
-export const revalidate = 1;
+export const dynamic = 'force-dynamic';
 
 const Home = async ({ searchParams: { category, endCursor } }: Props) => {
 	const data = category
