@@ -2,9 +2,7 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { categoryFilters } from '../../constants';
 
-type Props = {};
-
-const Categories = (props: Props) => {
+const Categories = () => {
 	const router = useRouter();
 	const pathName = usePathname();
 	const searchParams = useSearchParams();
