@@ -24,7 +24,7 @@ const FooterColumn = ({ title, links }: ColumnProps) => {
 
 const Footer = () => {
 	return (
-		<footer className='flexStart footer absolute left-0 right-0 bottom-0'>
+		<footer className='flexStart footer'>
 			<div className='flex flex-col w-full'>
 				<div className='flex items-start flex-col'>
 					<Image src='logo-purple.svg' width={115} height={38} alt='logo' />
