@@ -56,10 +56,40 @@ export const createUserMutation = gql`
 	}
 `;
 
-export const projectsQuery = gql`
+export const getAllProjects = gql`
+	query ProjectSearch($endCursor: String!) {
+		projectSearch(first: 10, after: $endCursor) {
+			pageInfo {
+				hasPreviousPage
+				hasNextPage
+				startCursor
+				endCursor
+			}
+			edges {
+				node {
+					title
+					githubUrl
+					description
+					liveSiteUrl
+					id
+					image
+					category
+					createdBy {
+						id
+						email
+						name
+						avatarUrl
+					}
+				}
+			}
+		}
+	}
+`;
+
+export const projectsQueryByCategory = gql`
 	query getProjects($category: String!, $endCursor: String!) {
 		projectSearch(
-			first: 8
+			first: 10
 			after: $endCursor
 			filter: { category: { eq: $category } }
 		) {
