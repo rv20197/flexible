@@ -26,7 +26,6 @@ const RelatedProjects = async ({ userId, projectId }: Props) => {
 			<div className='flexBetween'>
 				<p className='text-base font-bol'>More by {result?.user?.name}</p>
 				<Link
-					prefetch={false}
 					href={`/profile/${result?.user?.id}`}
 					className='text-primary-purple text-base'>
 					View All
@@ -39,7 +38,6 @@ const RelatedProjects = async ({ userId, projectId }: Props) => {
 						key={node?.id}
 						className='flexCenter related_project-card drop-shadow-card'>
 						<Link
-							prefetch={false}
 							href={`/project/${node?.id}`}
 							className='flexCenter group relative w-full h-full'>
 							<Image

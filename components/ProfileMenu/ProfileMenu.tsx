@@ -58,7 +58,6 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
 						<div className='flex flex-col gap-3 pt-10 items-start w-full'>
 							<Menu.Item>
 								<Link
-									prefetch={false}
 									href={`/profile/${session?.user?.id}`}
 									className='text-sm'>
 									Profile

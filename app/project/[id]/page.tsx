@@ -26,7 +26,7 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
 		<Modal>
 			<section className='flexBetween gap-y-8 max-w-4xl max-xs:flex-col w-full'>
 				<div className='flex-1 flex items-start gap-5 w-full max-xs:flex-col'>
-					<Link prefetch={false} href={renderLink()}>
+					<Link href={renderLink()}>
 						<Image
 							src={projectDetails?.createdBy?.avatarUrl}
 							width={50}
@@ -41,12 +41,9 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
 							{projectDetails?.title}
 						</p>
 						<div className='user-info'>
-							<Link prefetch={false} href={renderLink()}>
-								{projectDetails?.createdBy?.name}
-							</Link>
+							<Link href={renderLink()}>{projectDetails?.createdBy?.name}</Link>
 							<Image src='/dot.svg' width={4} height={4} alt='dot' />
 							<Link
-								prefetch={false}
 								href={`/?category=${projectDetails.category}`}
 								className='text-primary-purple font-semibold'>
 								{projectDetails?.category}
@@ -79,7 +76,6 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
 
 				<div className='flex flex-wrap mt-5 gap-5'>
 					<Link
-						prefetch={false}
 						href={projectDetails?.githubUrl}
 						target='_blank'
 						rel='noreferrer'
@@ -88,7 +84,6 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
 					</Link>
 					<Image src='/dot.svg' width={4} height={4} alt='dot' />
 					<Link
-						prefetch={false}
 						href={projectDetails?.liveSiteUrl}
 						target='_blank'
 						rel='noreferrer'
@@ -100,10 +95,7 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
 
 			<section className='flexCenter w-full gap-8 mt-28'>
 				<span className='w-full h-0.5 bg-light-white-200' />
-				<Link
-					prefetch={false}
-					href={renderLink()}
-					className='min-w-[82px] h-[82px]'>
+				<Link href={renderLink()} className='min-w-[82px] h-[82px]'>
 					<Image
 						src={projectDetails?.createdBy?.avatarUrl}
 						className='rounded-full'

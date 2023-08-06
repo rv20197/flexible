@@ -26,7 +26,7 @@ const ProfilePage = ({ user }: Props) => (
 				</p>
 
 				<div className='flex mt-8 gap-5 w-full flex-wrap'>
-					<Link prefetch={false} href={`mailto:${user?.email}`}>
+					<Link href={`mailto:${user?.email}`}>
 						<Button title='Hire Me' leftIcon='/email.svg' type={'button'} />
 					</Link>
 				</div>
