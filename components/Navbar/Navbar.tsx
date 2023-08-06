@@ -20,13 +20,6 @@ const Navbar = async () => {
 						priority
 					/>
 				</Link>
-				<ul className='xl:flex hidden text-small gap-7'>
-					{NavLinks.map(link => (
-						<Link key={`navbar-${link.key}`} href={link.href}>
-							{link.text}
-						</Link>
-					))}
-				</ul>
 			</div>
 
 			<div className='flexCenter gap-4'>

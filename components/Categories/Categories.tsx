@@ -7,10 +7,14 @@ const Categories = () => {
 	const pathName = usePathname();
 	const searchParams = useSearchParams();
 
-	const category = searchParams.get('category');
+	const category = searchParams.get('category') || 'All';
 
 	const handleClick = (category: string) => {
-		router.push(`${pathName}?category=${category}`);
+		if (category.toLowerCase() === 'all') {
+			router.push('/');
+		} else {
+			router.push(`${pathName}?category=${category}`);
+		}
 	};
 
 	return (
@@ -24,7 +28,7 @@ const Categories = () => {
 							category === cat
 								? 'bg-light-white-300 font-medium'
 								: 'font-normal'
-						} px-4 py-3 rounded-lg capitalize whitespace-nowrap`}
+						}  px-4 py-3 rounded-lg capitalize whitespace-nowrap`}
 						onClick={() => handleClick(cat)}>
 						{cat}
 					</button>
