@@ -1,17 +1,21 @@
 'use client';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { categoryFilters } from '../../constants';
+import { useEffect } from 'react';
 
 const Categories = () => {
 	const router = useRouter();
 	const pathName = usePathname();
 	const searchParams = useSearchParams();
 
+	useEffect(() => {
+		router.refresh();
+	}, [router])
+	
 	const category = searchParams.get('category') || 'All';
 
 	const handleClick = (category: string) => {
 		if (category.toLowerCase() === 'all') {
-			router.refresh();
 			router.push('/');
 		} else {
 			router.push(`${pathName}?category=${category}`);

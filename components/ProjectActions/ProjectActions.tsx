@@ -23,7 +23,6 @@ const ProjectActions = ({ projectId }: Props) => {
 		} catch (error) {
 			console.log(error);
 		} finally {
-			router.refresh();
 			setIsDeleting(false);
 		}
 	};
