@@ -11,7 +11,7 @@ const Navbar = async () => {
 	return (
 		<nav className='flexBetween navbar'>
 			<div className='flex-1 flexStart gap-10'>
-				<Link href='/'>
+				<Link prefetch={false} href='/'>
 					<Image
 						src='/logo.svg'
 						alt='flexible-logo'
@@ -26,7 +26,9 @@ const Navbar = async () => {
 				{session?.user ? (
 					<>
 						<ProfileMenu session={session} />
-						<Link href={'/create-project'}>Share your work</Link>
+						<Link prefetch={false} href={'/create-project'}>
+							Share your work
+						</Link>
 					</>
 				) : (
 					<AuthProviders />

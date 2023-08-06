@@ -19,7 +19,7 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
 	useEffect(() => {
 		const generateRandomNumbers = () => {
 			const randomLikes = Math.floor(Math.random() * 1000);
-			const randomViews = (Math.floor(Math.random() * 10000)/1000).toFixed(1);
+			const randomViews = (Math.floor(Math.random() * 10000) / 1000).toFixed(1);
 			setLikes(randomLikes);
 			setViews(randomViews);
 		};
@@ -29,6 +29,7 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
 	return (
 		<div className='flexCenter flex-col rounded-2xl drop-shadow-card'>
 			<Link
+				prefetch={false}
 				href={`/project/${id}`}
 				className='flexCenter group relative w-full h-full'>
 				<Image
@@ -45,7 +46,7 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
 			</Link>
 
 			<div className='flexBetween w-full px-2 mt-3 font-semibold text-sm'>
-				<Link href={`/profile/${userId}`}>
+				<Link prefetch={false} href={`/profile/${userId}`}>
 					<div className='flexCenter gap-2'>
 						<Image
 							src={avatarUrl}
@@ -71,7 +72,13 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
 						<p className='text-sm'>{likes}</p>
 					</div>
 					<div className='flexCenter gap-2'>
-						<Image src={'/eye.svg'} alt='views-button' width={13} height={12} priority/>
+						<Image
+							src={'/eye.svg'}
+							alt='views-button'
+							width={13}
+							height={12}
+							priority
+						/>
 						<p className='text-sm'>{views}k</p>
 					</div>
 				</div>

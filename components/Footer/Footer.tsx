@@ -26,7 +26,10 @@ const Footer = () => {
 				<div>
 					<p className='text-gray'>
 						<span className='text-black font-semibold'>
-							<Link href={'https://www.vatsalrajgor.com'} target='_blank'>
+							<Link
+								prefetch={false}
+								href={'https://www.vatsalrajgor.com'}
+								target='_blank'>
 								Vatsal Rajgor
 							</Link>
 						</span>
