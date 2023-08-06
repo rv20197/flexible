@@ -14,7 +14,7 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
     return (
         <div className="flexCenter z-10 flex-col relative">
             <Menu as="div">
-                <Menu.Button className="flexCenter" onMouseEnter={() => setOpenModal(true)} id='profile-button'>
+                <Menu.Button className="flexCenter" onClick={() => setOpenModal(true)} id='profile-button'>
                     {session?.user?.image && (
                         <Image
                             src={session.user.image}
@@ -55,12 +55,6 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
                         </div>
 
                         <div className="flex flex-col gap-3 pt-10 items-start w-full">
-                            <Menu.Item>
-                                <Link href={`/profile/${session?.user?.id}`} className="text-sm">Work Preferences</Link>
-                            </Menu.Item>
-                            <Menu.Item>
-                                <Link href={`/profile/${session?.user?.id}`} className="text-sm">Settings</Link>
-                            </Menu.Item>
                             <Menu.Item>
                                 <Link href={`/profile/${session?.user?.id}`} className="text-sm">Profile</Link>
                             </Menu.Item>
