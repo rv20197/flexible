@@ -25,7 +25,7 @@ type Props = {
 	searchParams: searchParams;
 };
 
-export const revalidate = 10;
+export const revalidate = 1;
 
 const Home = async ({ searchParams: { category, endCursor } }: Props) => {
 	const data = category
