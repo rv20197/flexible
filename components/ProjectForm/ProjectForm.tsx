@@ -46,6 +46,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
 		} catch (error) {
 			console.log(`Error creating ${type}:`, error);
 		} finally {
+			router.refresh();
 			setIsSubmitting(false);
 		}
 	};

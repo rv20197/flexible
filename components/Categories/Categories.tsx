@@ -11,6 +11,7 @@ const Categories = () => {
 
 	const handleClick = (category: string) => {
 		if (category.toLowerCase() === 'all') {
+			router.refresh();
 			router.push('/');
 		} else {
 			router.push(`${pathName}?category=${category}`);

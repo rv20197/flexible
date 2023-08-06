@@ -11,6 +11,7 @@ const Modal = ({ children }: { children: ReactNode }) => {
 
 	const onClose = useCallback(() => {
 		router.push('/');
+		router.refresh();
 	}, [router]);
 
 	const handleClick = useCallback((e: React.MouseEvent) => {
