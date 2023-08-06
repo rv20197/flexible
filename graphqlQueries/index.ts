@@ -57,7 +57,7 @@ export const createUserMutation = gql`
 `;
 
 export const projectsQuery = gql`
-	query getProjects($category: String, $endCursor: String) {
+	query getProjects($category: String!, $endCursor: String!) {
 		projectSearch(
 			first: 8
 			after: $endCursor
