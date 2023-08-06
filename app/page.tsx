@@ -1,5 +1,6 @@
 import { ProjectInterface } from '../common.types';
 import Categories from '../components/Categories/Categories';
+import LoadMore from '../components/LoadMore/LoadMore';
 import ProjectCard from '../components/ProjectCard/ProjectCard';
 import { fetchAllProjects } from '../lib/actions';
 
@@ -8,7 +9,7 @@ type ProjectsSearch = {
 		edges: { node: ProjectInterface }[];
 		pageInfo: {
 			hasPreviousPage: boolean;
-			hasNestPage: boolean;
+			hasNextPage: boolean;
 			startCursor: string;
 			endCursor: string;
 		};
@@ -17,14 +18,15 @@ type ProjectsSearch = {
 
 type searchParams = {
 	category?: string;
+	endCursor?: string;
 };
 
 type Props = {
 	searchParams: searchParams;
 };
 
-const Home = async ({ searchParams: { category } }: Props) => {
-	const data = (await fetchAllProjects(category)) as ProjectsSearch;
+const Home = async ({ searchParams: { category, endCursor } }: Props) => {
+	const data = (await fetchAllProjects(category, endCursor)) as ProjectsSearch;
 
 	const projectsToDisplay = data?.projectSearch?.edges || [];
 
@@ -38,6 +40,8 @@ const Home = async ({ searchParams: { category } }: Props) => {
 			</section>
 		);
 	}
+
+	const pagination = data?.projectSearch?.pageInfo;
 
 	return (
 		<section className='flex-start flex-col paddings mb-16'>
@@ -55,7 +59,12 @@ const Home = async ({ searchParams: { category } }: Props) => {
 					/>
 				))}
 			</section>
-			<h1>LoadMore</h1>
+			<LoadMore
+				startCursor={pagination.startCursor}
+				endCursor={pagination.endCursor}
+				hasPreviousPage={pagination.hasPreviousPage}
+				hasNextPage={pagination.hasNextPage}
+			/>
 		</section>
 	);
 };
