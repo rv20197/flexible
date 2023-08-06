@@ -1,8 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getProviders, signIn } from 'next-auth/react';
+import {
+	ClientSafeProvider,
+	LiteralUnion,
+	getProviders,
+	signIn
+} from 'next-auth/react';
 import Button from '../Button/Button';
+import { BuiltInProviderType } from 'next-auth/providers/index';
 
 type Provider = {
 	id: string;
@@ -13,7 +19,10 @@ type Provider = {
 	signInUrlParams?: Record<string, string> | undefined;
 };
 
-type Providers = Record<string, Provider>;
+type Providers = Record<
+	LiteralUnion<BuiltInProviderType, string>,
+	ClientSafeProvider
+> | Provider | null;
 
 const AuthProviders = () => {
 	const [providers, setProviders] = useState<Providers | null>(null);
@@ -37,7 +46,9 @@ const AuthProviders = () => {
 					<Button
 						key={idx}
 						handleClick={() => handleClick(provider)}
-						title='Sign In' type={'button'}/>
+						title='Sign In'
+						type={'button'}
+					/>
 				))}
 			</div>
 		);
