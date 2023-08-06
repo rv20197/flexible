@@ -25,6 +25,8 @@ type Props = {
 	searchParams: searchParams;
 };
 
+export const revalidate = 10 
+
 const Home = async ({ searchParams: { category, endCursor } }: Props) => {
 	const data = (await fetchAllProjects(category, endCursor)) as ProjectsSearch;
 
