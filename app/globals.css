@@ -8,10 +8,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Inter;
-}
-
 .flexCenter {
   @apply flex justify-center items-center;
 }
