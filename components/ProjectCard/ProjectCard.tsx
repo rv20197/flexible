@@ -36,7 +36,6 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
 					alt={title}
 					width={414}
 					height={314}
-					priority
 					className='w-full h-full object-cover rounded-2xl'
 				/>
 				<div className='hidden group-hover:flex profile_card-title'>
@@ -52,7 +51,6 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
 							width={24}
 							height={24}
 							alt='profile-image'
-							priority
 							className='rounded-full'
 						/>
 						<p className='text-md'>{name}</p>
@@ -65,19 +63,12 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
 							src={'/hearth.svg'}
 							alt='like-button'
 							width={13}
-							priority
 							height={12}
 						/>
 						<p className='text-sm'>{likes}</p>
 					</div>
 					<div className='flexCenter gap-2'>
-						<Image
-							src={'/eye.svg'}
-							alt='views-button'
-							width={13}
-							height={12}
-							priority
-						/>
+						<Image src={'/eye.svg'} alt='views-button' width={13} height={12} />
 						<p className='text-sm'>{views}k</p>
 					</div>
 				</div>
