@@ -1,13 +1,15 @@
 'use client';
 import React, { ChangeEvent, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { ProjectInterface, SessionInterface } from '../../common.types';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import FormField from '../FormField/FormField';
 import { categoryFilters, formFields } from '../../constants';
-import CustomMenu from '../CustomMenu/CustomMenu';
-import Button from '../Button/Button';
 import { createNewProject, fetchToken, updateProject } from '../../lib/actions';
+
+const Button = dynamic(() => import('../Button/Button'));
+const CustomMenu = dynamic(() => import('../CustomMenu/CustomMenu'));
+const FormField = dynamic(() => import('../FormField/FormField'));
 
 type Props = {
 	type: string;

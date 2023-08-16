@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import Button from '../Button/Button';
+import dynamic from 'next/dynamic';
+const Button = dynamic(() => import('../Button/Button'));
 
 type Props = {
 	hasPreviousPage: boolean;

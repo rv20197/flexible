@@ -7,8 +7,9 @@ import {
 	getProviders,
 	signIn
 } from 'next-auth/react';
-import Button from '../Button/Button';
 import { BuiltInProviderType } from 'next-auth/providers/index';
+import dynamic from 'next/dynamic';
+const Button = dynamic(() => import('../Button/Button'));
 
 type Provider = {
 	id: string;
@@ -19,10 +20,10 @@ type Provider = {
 	signInUrlParams?: Record<string, string> | undefined;
 };
 
-type Providers = Record<
-	LiteralUnion<BuiltInProviderType, string>,
-	ClientSafeProvider
-> | Provider | null;
+type Providers =
+	| Record<LiteralUnion<BuiltInProviderType, string>, ClientSafeProvider>
+	| Provider
+	| null;
 
 const AuthProviders = () => {
 	const [providers, setProviders] = useState<Providers | null>(null);
