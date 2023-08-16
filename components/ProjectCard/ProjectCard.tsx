@@ -37,7 +37,6 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
 					width={414}
 					height={314}
 					priority
-					fill
 					className='w-full h-full object-cover rounded-2xl'
 				/>
 				<div className='hidden group-hover:flex profile_card-title'>
