@@ -4,7 +4,23 @@ const nextConfig = {
 	images: {
 		domains: ['lh3.googleusercontent.com', 'res.cloudinary.com']
 	},
-	compress: true
+	compress: true,
+	experimental: {
+    turbo: {
+      loaders: {
+        '.md': [
+          {
+            // Option format
+            loader: '@mdx-js/loader',
+            options: {
+              format: 'md',
+            },
+          },
+        ],
+        '.svg': ['@svgr/webpack'],
+      },
+    },
+  },
 };
 
 module.exports = nextConfig;
