@@ -4,10 +4,7 @@ const nextConfig = {
 	images: {
 		domains: ['lh3.googleusercontent.com', 'res.cloudinary.com']
 	},
-	compress: true,
-	experimental: {
-    serverComponentsExternalPackages: ['autoprefixer','postcss'],
-  },
+	compress: true
 };
 
 module.exports = nextConfig;
